@@ -1,0 +1,2 @@
+./dlv -silent -nofacts fwd.dlv
+./dlv -silent -nofacts -brave bcw.dlv

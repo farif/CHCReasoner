@@ -1,0 +1,40 @@
+?start: kb
+
+kb: rule+ 
+
+rule: head ":-" body ["."]
+	  | head ["."] 
+	  | ":-" body ["."] 
+
+?head: atom 
+?body: atom ("^" atom)*
+
+?atom: ID "(" term ")" | ID "(" term "," term ")" 
+	   | term OP term
+	   
+?term: 	constant
+       | variable
+        
+!constant: string
+        | NUMBER
+        | sid
+                
+sid: "_id" "(" NUMBER ")"
+        
+string : ESCAPED_STRING        
+
+OP: "=" |"!=" | ">=" | ">" | "<" | "<=" 
+
+variable: ("?") ID
+
+ID: (LETTER) ("_"|LETTER|DIGIT)*
+
+COMMENT: /%.*/
+
+%import common.ESCAPED_STRING
+%import common.LETTER
+%import common.DIGIT
+%import common.NUMBER        
+%import common.WS
+%ignore WS 
+%ignore COMMENT

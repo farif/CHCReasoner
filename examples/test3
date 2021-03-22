@@ -1,0 +1,6 @@
+%Comment
+Person(_id(1)). 
+Person(_id(2)).
+:- child(_id(1),?x).
+age(_id(2), 15).
+?x > 10.

@@ -1,0 +1,11 @@
+%Facts:
+Person(_id(1)).
+Person(_id(2)). 
+child(_id(1), _id(2)).
+has_age(_id(2), 15).
+
+%Rules:
+dependant(?taxpayer, ?child) :-  child(?taxpayer, ?child) ^  has_age(?child, ?age) ^ ?age < 18.
+
+%Assert:
+%dependant(id_1, id_2).
