@@ -21,11 +21,15 @@ A default example file is added to test the reasoner (fwd-chaining-eg.txt).
 
 ![](resources/recorded-syslite.gif)
 
-## Supported Algorithms:
+## Supported Algorithms
 The tool currently supports a list of algorithms that can be invoked with `-a` option:
 
 1. Forward Chaining Algorithm `fwc`  
 2. Backward Chaining Algorithm `bcw` [Not supported yet]
 
-##References:
+## References
+1. Mattos, Nelson Mendonça. An approach to knowledge base management. Vol. 513. Berlin: Springer, 1991.
+2. Russell, S. J., and P. Norvig. "Artificial intelligence: a modern approach/Stuart J." Russell and Peter Norvig contributing writers, Ernest Davis...[et al.].
+3.  https://www.ics.uci.edu/~kkask/Fall-2017%20CS271/slides/06-prop-logic.pdf
+
 
