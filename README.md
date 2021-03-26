@@ -19,7 +19,7 @@ Run commands on Terminal:
 A default example file is added to test the reasoner (fwd-chaining-eg.txt). 
 `./src/Driver.py`
 
-![](resources/recorded-syslite.gif)
+![](https://github.com/farif/CHCReasoner/blob/main/setup_run_reasoner.gif)
 
 ## Supported Algorithms
 The tool currently supports a list of algorithms that can be invoked with `-a` option:
