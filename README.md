@@ -17,7 +17,7 @@ Run commands on Terminal:
 ## Usage
 
 A default example file is added to test the reasoner (fwd-chaining-eg.txt). 
-`./Driver.py`
+`./src/Driver.py`
 
 ![](resources/recorded-syslite.gif)
 
