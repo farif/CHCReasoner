@@ -1,9 +1,8 @@
 # Constrained Horn Clause (CHC) Reasoner: 
 A simple forward chaining algorithm implementation.
 
-
-1) Forward Chaining: In this we are given a knowledge base which includes the rules and the facts. The basic idea behind forward chaining is that
-	from facts we go through the rules and see which of them can be fired. The rule which is fired,its consequence is added to the list of facts. Then the collective list of facts are then used to fire further rules.
+1) Forward Chaining: 
+Given a knowledge base that contains rules and facts, a forward-chaining algorithm uses these facts for the matching and firing of existing rules. A rule matching criteria is to unify premises with existing and entailed facts. If all premises of a rule hold,  a consequence of the rule gets added to the entailed facts.
 	
 ## Build
 Run commands on Terminal:
@@ -21,19 +20,23 @@ Run commands on Terminal:
 ## Usage
 
 A default example file is added to test the reasoner (fwd-chaining-eg.txt). 
-`./src/Driver.py --help`
+`./src/Driver.py`
 
-![](demo/demo.gif)
+![](https://github.com/farif/CHCReasoner/blob/main/install_reasoner.gif)
+
 
 ## Supported Algorithms
 The tool currently supports a list of algorithms that can be invoked with `-a` option:
 
 1. Forward Chaining Algorithm `fwc`  
+![](https://github.com/farif/CHCReasoner/blob/main/demo/fwc-running.gif)
+
 2. Backward Chaining Algorithm `bcw` [Not supported yet]
+
+3. DLV Rewrite
+![](https://github.com/farif/CHCReasoner/blob/main/demo/fwc-dlv-eg.gif)
 
 ## References
 1. Mattos, Nelson Mendonça. An approach to knowledge base management. Vol. 513. Berlin: Springer, 1991.
 2. Russell, S. J., and P. Norvig. "Artificial intelligence: a modern approach/Stuart J." Russell and Peter Norvig contributing writers, Ernest Davis...[et al.].
 3.  https://www.ics.uci.edu/~kkask/Fall-2017%20CS271/slides/06-prop-logic.pdf
-
-
