@@ -24,7 +24,7 @@ class AtomicSentence:
     def is_binary(self):
         return len(self.terms) == 2
     #Constraint Relation
-    def is_constraint(self):
+    def is_cons(self):
         return self.pred in OPS
     
     # Equality
@@ -47,33 +47,20 @@ class AtomicSentence:
             return op.join([str(a) for a in self.terms])
 
         return str(self.pred) + "("+ print_terms +")"
-    
-    #Operator has to be a statement
-#     def get_op(self):
-#         if self.pred == '=' :
-#             return operator.eq
-#         if self.pred == '!=':
-#             return operator.ne
-#         if self.pred == '>':
-#             return operator.gt
-#         if self.pred == '>=':
-#             return operator.ge
-#         if self.pred == '<':
-#             return operator.lt
-#         if self.pred == '<=':
-#             return operator.le
-    
+        
     #renaming all variables
-    def std_vars(self,bind_dict = {}):
-        global MAX_VAR
+    def std_vars(self, bind_dict = {}):
+#        global MAX_VAR
         
         for index, term in enumerate(self.terms):
             
-            if term.is_var:
-                if not term.tid in bind_dict:
-                    bind_dict[term.tid] = term.std_vars()
-                self.terms[index] = Term(bind_dict[term.tid])
-        
+            if term.is_var():
+                if not term in bind_dict:
+                    bind_term = Term(term.std_vars())
+                    bind_dict[term] = bind_term
+                    self.terms[index] = bind_term
+                else:
+                    self.terms[index] = bind_dict[term]
         return bind_dict
     
     def get_vars(self):

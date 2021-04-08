@@ -18,6 +18,7 @@ Created on Mar 21, 2021
 #class Lit:
 #import types
 from data.Sentence import AtomicSentence
+MAX_VAR = 0
 #?How to deal with Instance
 class Rule:
     #Zero or Atomic sentence
@@ -25,9 +26,19 @@ class Rule:
     #Zero or Atomic or Conjunction of Sentences
     body = None
     
+    b_count = 0
+    
     def __init__(self, lhs, rhs):
+        
         self.head = lhs
-        self.body = rhs
+        
+        if isinstance(rhs, list):
+            self.body = rhs
+        else:
+            self.body = [rhs]
+#            self.body_count = 1
+        self.b_count = len(self.body)
+
 #        self.t_isvar = t_id.startswith('?')
  
     def is_fact(self):
@@ -51,6 +62,16 @@ class Rule:
     def is_body(self):
         return (not self.head)
 
+    def dec_count(self):
+#        if self.body_count > 0:
+        self.b_count -= 1
+    
+    def revert_count(self):
+        self.b_count = len(self.body)
+
+    def is_enabled(self):
+        return self.b_count <= 0
+    
     def is_clause(self):
         return (self.head and self.body)
 
@@ -64,19 +85,12 @@ class Rule:
             print(atom, new_atom, len(n_vars))
         print(new_atom)
 
-                
-#     def is_complex_body(self):
-#         return not self.body.is_atomic()
-    
+    def std_vars(self):
+        binding = {}
+        self.head.std_vars(binding)
+        for b in self.body:
+            b.std_vars(binding)
 
-#    def is_rule(self):
-#        return not (self.is_fact() or self.is_goal())
-        
-#    def get_value(self):
-#        if type(self.t_id) == type.bool:
-#            return   
-    # Equality
-    # Two variables are equal if their ID's are
     def __eq__(self, cmp):
         return self.head == cmp.head and all([x == y for (x,y) in zip(self.body == cmp.body)])
 
@@ -87,9 +101,11 @@ class Rule:
     # Representation for humans
     def __repr__(self):
         IMPLIES = " :- "
+        #Head/Fact
         if self.head and not self.body:
             return str(self.head) 
+        #Query
         if self.body and not self.head:
-            return  IMPLIES + ' ^ '.join(str(b) for b in self.body)
-            
+            return  ' ^ '.join(str(b) for b in self.body)
+        #Rules
         return str(self.head) + IMPLIES + ' ^ '.join(str(b) for b in self.body)

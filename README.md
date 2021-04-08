@@ -1,6 +1,10 @@
-# CHC Reasoner 
+# Constrained Horn Clause (CHC) Reasoner: 
 A simple forward chaining algorithm implementation.
 
+
+1) Forward Chaining: In this we are given a knowledge base which includes the rules and the facts. The basic idea behind forward chaining is that
+	from facts we go through the rules and see which of them can be fired. The rule which is fired,its consequence is added to the list of facts. Then the collective list of facts are then used to fire further rules.
+	
 ## Build
 Run commands on Terminal:
 0. Setup Virtual Environment: `sudo apt-get install python3-venv`
@@ -17,9 +21,9 @@ Run commands on Terminal:
 ## Usage
 
 A default example file is added to test the reasoner (fwd-chaining-eg.txt). 
-`./Driver.py`
+`./src/Driver.py --help`
 
-![](resources/recorded-syslite.gif)
+![](demo/demo.gif)
 
 ## Supported Algorithms
 The tool currently supports a list of algorithms that can be invoked with `-a` option:

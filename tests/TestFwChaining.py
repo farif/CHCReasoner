@@ -28,9 +28,9 @@ if __name__ == '__main__':
     sub_g1 = AtomicSentence("has_age", ["?child", "?age"]);
     sub_g2 = AtomicSentence("<", ["?age", 18]);
       
-    rule_one = Rule(head, [sub_g, sub_g1, sub_g2])
+    one_rule = Rule(head, [sub_g, sub_g1, sub_g2])
       
-    kb.add_rule(rule_one)
+    kb.add_rule(one_rule)
 
     data_read = Path('../examples/fwd-chaining-eg.txt').read_text()
  
@@ -38,9 +38,9 @@ if __name__ == '__main__':
     
     print(kb)
 
-    entailedFacts = forward_chaining(kb.facts, kb.rules)
+    eFacts = forward_chaining(kb.facts, kb.rules)
     
-    print(set(entailedFacts))
-   
+    print('E. Facts: ', eFacts)
+    print("--------")
 
     

@@ -11,22 +11,25 @@ from data.Sentence import AtomicSentence
 from data.Rule import Rule
 from data.KnowledgeBase import KnowledgeBase
 
+#Grammar BNF
 rules_grammar = r"""
 ?start: kb
 
 kb: rule+ 
 
+
 rule: head ":-" body ["."]
       | head ["."] 
-      | ":-" body ["."] 
+      | query
 
 ?head: atom 
 ?body: atom ("^" atom)*
+query: ":-" body ["."] 
 
 ?atom: ID "(" term ")" | ID "(" term "," term ")" 
        | term OP term
        
-?term:     constant
+?term:  constant
        | variable
         
 !constant: string
@@ -53,6 +56,8 @@ COMMENT: /%.*/
 %ignore WS 
 %ignore COMMENT
 """
+grammar_file = "chc-grammar.lark"
+
 class TreeToRule(Transformer):
     
     def kb(self, args):
@@ -61,23 +66,30 @@ class TreeToRule(Transformer):
         for r in args:
             if r.is_head():
                 kb.add_fact(r.head)
-            elif r.is_clause():
-                kb.add_rule(r)
+            elif r.is_body():
+                kb.add_query(r)
             else:
-                kb.add_query(r.body)
+                kb.add_rule(r)
 
         return kb
                     
     def rule(self, args):
         #a rule clause
+        if isinstance(args[0], Rule):
+            return args[0]
         if len(args) > 1:
-            arule = Rule(args[0], args[1])
+            return Rule(args[0], args[1])
         else:
-            arule = Rule(args[0], args[1:])
-                    
-        return arule
+            return Rule(args[0], args[1:])
+                
+    
+    def query(self, args):
+        query = Rule(None, args[0])
+        
+        return query
     
     def atom(self, args):
+        
         if args[1] in OPS:
             predicate = args[1]
             t1 = args[0]
@@ -116,21 +128,23 @@ class TreeToRule(Transformer):
 #        print("ID:", value)
         return value
         
-def parse(s_input):
+def parse(s_input):    
     
-#    rules_grammar = open(grammar_file).read()
-    parser = Lark(rules_grammar, parser='lalr', lexer='standard', transformer=TreeToRule())
+#    gfpath = Path(grammar_file).absolute()   
+#    print(gfpath)
+
+    #Read Input Grammar
+    chc_grammar = Path(grammar_file).read_text()
+    
+    #Initialize Parser
+    parser = Lark(chc_grammar, parser='lalr', lexer='standard', transformer=TreeToRule())
     
     try:
-        rule = parser.parse(s_input)            
+        #Read Input and return KB.
+        kb = parser.parse(s_input)            
 
     except ParseError as e:    
-        print('Failed to Parse Formula, error:', e)
+        print('Failed to parse :', str(e))
 
-    return rule 
+    return kb 
    
-if __name__ == '__main__':
-    data_read = Path('../examples/fwd-chaining-eg.txt').read_text()
-
-    kb = parse(data_read)
-    print(kb)

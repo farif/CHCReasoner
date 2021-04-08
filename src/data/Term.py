@@ -42,7 +42,7 @@ class Term:
         
     # Equality
     def __eq__(self, cmp):
-        return self.tid == cmp.tid
+        return self.tid == cmp.tid or (self.is_var() and cmp.is_var())
 
     # Hash for Dictionaries
     def __hash__(self):
