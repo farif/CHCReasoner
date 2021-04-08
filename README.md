@@ -39,4 +39,4 @@ The tool currently supports a list of algorithms that can be invoked with `-a` o
 ## References
 1. Mattos, Nelson Mendonça. An approach to knowledge base management. Vol. 513. Berlin: Springer, 1991.
 2. Russell, S. J., and P. Norvig. "Artificial intelligence: a modern approach/Stuart J." Russell and Peter Norvig contributing writers, Ernest Davis...[et al.].
-3.  https://www.ics.uci.edu/~kkask/Fall-2017%20CS271/slides/06-prop-logic.pdf
+3. The slide notes: https://www.ics.uci.edu/~kkask/Fall-2017%20CS271/slides/06-prop-logic.pdf
