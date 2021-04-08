@@ -1,9 +1,10 @@
 # Constrained Horn Clause (CHC) Reasoner: 
 A simple forward chaining algorithm implementation.
 
-1) Forward Chaining: 
-Given a knowledge base that contains rules and facts, a forward-chaining algorithm uses these facts for the matching and firing of existing rules. A rule matching criteria is to unify premises with existing and entailed facts. If all premises of a rule hold,  a consequence of the rule gets added to the entailed facts.
-	
+<p align="justify">
+1) Forward Chaining: Given a knowledge base that contains rules and facts, a forward-chaining algorithm uses these facts for the matching and firing of existing rules. A rule matching criteria is to unify premises with existing and entailed facts, if all premises of a rule hold,  a consequence of the rule gets added to the entailed facts.
+</p>
+
 ## Build
 Run commands on Terminal:
 0. Setup Virtual Environment: `sudo apt-get install python3-venv`
