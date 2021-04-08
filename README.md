@@ -1,7 +1,7 @@
 # Constrained Horn Clause (CHC) Reasoner: 
 
 <p align="justify">
-1) `Forward Chaining:` Given a knowledge base that contains rules and facts, a forward-chaining algorithm uses these facts for the matching and firing of existing rules. A rule matching criteria is to unify premises with existing and entailed facts, if all premises of a rule hold,  a consequence of the rule gets added to the entailed facts.
+1) Forward Chaining: Given a knowledge base that contains rules and facts, a forward-chaining algorithm uses these facts for the matching and firing of existing rules. A rule matching criteria is to unify premises with existing and entailed facts, if all premises of a rule hold,  a consequence of the rule gets added to the entailed facts.
 </p>
 
 ## Build
