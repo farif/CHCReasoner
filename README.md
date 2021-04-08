@@ -1,8 +1,7 @@
 # Constrained Horn Clause (CHC) Reasoner: 
-A simple forward chaining algorithm implementation.
 
 <p align="justify">
-1) Forward Chaining: Given a knowledge base that contains rules and facts, a forward-chaining algorithm uses these facts for the matching and firing of existing rules. A rule matching criteria is to unify premises with existing and entailed facts, if all premises of a rule hold,  a consequence of the rule gets added to the entailed facts.
+1) `Forward Chaining:` Given a knowledge base that contains rules and facts, a forward-chaining algorithm uses these facts for the matching and firing of existing rules. A rule matching criteria is to unify premises with existing and entailed facts, if all premises of a rule hold,  a consequence of the rule gets added to the entailed facts.
 </p>
 
 ## Build
@@ -34,10 +33,11 @@ The tool currently supports a list of algorithms that can be invoked with `-a` o
 
 2. Backward Chaining Algorithm `bcw` [Not supported yet]
 
-3. DLV Rewrite
+3. DLV using rules rewrite
 ![](https://github.com/farif/CHCReasoner/blob/main/demo/fwc-dlv-eg.gif)
 
 ## References
 1. Mattos, Nelson Mendonça. An approach to knowledge base management. Vol. 513. Berlin: Springer, 1991.
 2. Russell, S. J., and P. Norvig. "Artificial intelligence: a modern approach/Stuart J." Russell and Peter Norvig contributing writers, Ernest Davis...[et al.].
 3. The slide notes: https://www.ics.uci.edu/~kkask/Fall-2017%20CS271/slides/06-prop-logic.pdf
+4. Deductive database system, DLV user manual: http://www.dlvsystem.com/html/DLV_User_Manual.html
