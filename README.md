@@ -6,8 +6,8 @@
 
 ## Build
 Run commands on Terminal:
-0. Setup Virtual Environment: `sudo apt-get install python3-venv`
-1. Build: `./tool-setup`
+1. Setup Virtual Environment: `sudo apt-get install python3-venv`
+2. Build: `./tool-setup`
    * Continue? [Y]es/[N]o: Y 
    * only required once to setup the reasoner
    
