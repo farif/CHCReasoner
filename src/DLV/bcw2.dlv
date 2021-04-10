@@ -1,0 +1,11 @@
+%FACTS:
+Elephant(id_1).
+Monkey(id_2).
+
+%RULES:
+Animal(X):- Elephant(X).
+Animal(X):- Monkey(X).
+LivingBeing(X):- Animal(X).
+
+%ASSERT:
+%LivingBeing(X)?

@@ -64,10 +64,6 @@ def forward_chaining(facts, rules):
                         agenda.append(conseq)
                         eFacts.append(conseq)
                     break;
-            # Fired Rule    
-            if r.is_enabled():
-                if pfact in eFacts:
-                    r.revert_count()
     
 #     goals = []
 # 
