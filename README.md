@@ -23,7 +23,7 @@ Run commands on Terminal:
 A default example file is added to test the reasoner (fwd-chaining-eg.txt). 
 `./src/Driver.py --help`
 
-![](demo/demo.gif)
+![](demo/fwc-running.gif)
 
 ## Supported Algorithms
 The tool currently supports a list of algorithms that can be invoked with `-a` option:
